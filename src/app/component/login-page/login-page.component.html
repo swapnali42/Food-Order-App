@@ -1,0 +1,37 @@
+<div class="loginPageImage">
+    <div class="col-md-12">
+        <img src="/Pictures/images.jpg" class="img-fluid" alt="Responsive image">
+    </div>
+</div>
+<div class="loginPage">
+    <div ng-app="myApp" ng-controller="myController" class="container">
+        <form [formGroup]="login">
+            <div class="login-container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+
+                            <input type="email" formControlName="email" class="emailInp" placeholder="Enter Email">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+
+                            <input type="password" formControlName="pass" class="passInp" placeholder="Enter Password">
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <button class="btn  pull-right" (click)="loginSubmit(login.value)"
+                                [disabled]="login.invalid">Login</button>
+                            <button class="btn  pull-right" (click)="goToSignup()">Signup</button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

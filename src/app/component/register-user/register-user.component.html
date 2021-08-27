@@ -1,0 +1,32 @@
+<div class="loginPage">
+    <div ng-app="myApp" ng-controller="myController" class="container">
+        <form [formGroup]="register">
+            <div class="login-container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+
+                            <input type="email" formControlName="email" class="emailInp" placeholder="Enter Email">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+
+                            <input type="password" formControlName="pass" class="passInp" placeholder="Enter Password">
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <button class="btn  pull-right" (click)="registerSubmit(register.value)"
+                                [disabled]="register.invalid">SIGNUP</button>
+                            <button class="btn  pull-right" (click)="goToLogin()">LOGIN</button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
