@@ -1,0 +1,14 @@
+.tableRow {
+    float:left;
+}
+.food-wrapper { 
+    /*border: 1px solid grey;*/
+    color: lightseagreen;
+    padding: 10px;
+    text-align: center;
+}
+
+.food-item img{
+    max-width: 100%;
+    max-height: 200px;
+}

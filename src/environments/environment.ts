@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  baseURL1 : 'https://www.themealdb.com/api/json/v1/1/search.php?f=a',
   baseURL : "http://localhost:3000/user", 
   production: false
 };

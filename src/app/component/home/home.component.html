@@ -1,1 +1,49 @@
-<p>home works!</p>
+<div class="homePage">
+    <div class="col-md-12">
+        <form [formGroup]="homeForm">
+            <!-- <div class="home-container">
+                <mat-card>
+                    <table class="table">
+
+                        <tbody>
+                            <tr class="tableRow" *ngFor="let item of mealList">
+                                <div class="card" style="width: 18rem;">
+                                    <img class="card-img-top" src={{item.strMealThumb}} alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{item.strMeal}}</h4>
+                                        <h5>{{item.strMeasure1}}</h5>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+
+                            </tr>
+                    </table>
+                </mat-card>
+            </div> -->
+            <div class="row food-wrapper">
+                <div class="col-sm-6 col-md-4 col-lg-3 food-item"
+                  *ngFor="let item of mealList"  >
+                  <div class="thumbnail">
+                    <img [src]="item.strMealThumb"
+                      alt="{{item.strMeal}}">
+                    <div class="caption">
+                      <h3>{{item.strMeal}}</h3>
+                      <p>
+                        Price {{item.strMeasure1}} 
+                      </p>
+                      <button class="btn btn-primary"
+                        role="button"
+                        id={{item.idMeal}}
+                        (click)="onCartUpdated($event)"
+                        >
+                        Add to Cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              
+        </form>
+    </div>
+</div>

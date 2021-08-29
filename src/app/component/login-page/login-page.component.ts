@@ -9,6 +9,7 @@ import { CommonService } from 'src/app/common.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
+  
 login:any = FormGroup;
 users : any = [];
     constructor(private fb:FormBuilder, private router :Router, private commserv:CommonService) { }
@@ -21,20 +22,25 @@ users : any = [];
     this.commserv.getUser().subscribe((data:any)=> {
       console.log(data);
       this.users = data;
+      console.log("this.users",this.users);
     })
   }
 
   loginSubmit(data:any) {
-    console.log(data);
+   
     if(data.email) {
+      
       this.users.forEach((item:any) => {
         if(item.email === data.email && item.pass === data.pass)
         {
+         console.log("valid");
           localStorage.setItem("isLoggedIn", "true");
           this.router.navigate(['home']);
         }
         else{
+          console.log("invalid")
           localStorage.clear()
+          
         }
        
       });
