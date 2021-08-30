@@ -1,31 +1,45 @@
+ 
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: darkseagreen;">
+    <div class="navbar-brand align-item-center d-flex" href="#">
+        <i class="fas fa-shipping-fast">&nbsp;</i>
+        <strong>Food-Fast</strong>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-<div class="navbarheader">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" href="#">FOOD ORDER</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline my-2 my-lg-0">
+            <div class="row">
+                <div class="col-md-8">
+                <input class="form-control mr-sm-2" type="search" placeholder="serach your food" aria-label="Search">
+            </div>
+            <div class="col-md-3">
+                <button routerLink="/search" class="btn btn-outline-success" type="submit">Search</button>
+            </div>
+            </div>
+        </form>
+        <ul class="navbar-nav navbarItem">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">FAQ</a>
+            </li>
+
+
+        </ul>
+        <button routerLink="cart" class="btn btn-primary" >
+            <i style="font-size: 30px;" class="fas fa-cart-plus">
+            <div style="font-size: 10px;" class="badge bg-danger">
+                {{totalItem}}
+            </div>
+            </i>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
-                </li>
-
-            </ul>
-
-        </div>
-    </nav>
-
-
-
-   
-
-</div>
+    </div>
+</nav>

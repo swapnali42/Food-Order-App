@@ -1,0 +1,21 @@
+.form-control {
+    border-radius: 3px;
+   
+    margin-left: 20px;
+}
+.navbarItem {
+    margin-left: auto;
+    font-weight: bold;
+}
+.btn-outline-success {
+    background-color: darkgreen; 
+    border : 1px solid black;
+    color: #fff;
+}
+/* .search-icon {
+    position: absolute;
+    z-index: 10;
+    right: 62%;
+    top: 20px;
+    color: blue;
+} */

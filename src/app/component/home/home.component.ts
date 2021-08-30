@@ -2,6 +2,7 @@ import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/common.service';
+import { CartService } from 'src/app/service/cart.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
     productName: string,
     productPrice: number
   }>();
-  constructor(private fb: FormBuilder, private router: Router, private commserv: CommonService) { }
+  constructor(private fb: FormBuilder, private router: Router, 
+    private commserv: CommonService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.homeForm = this.fb.group({
@@ -31,20 +33,16 @@ export class HomeComponent implements OnInit {
       console.log(data);
       this.mealList = data.meals;
       console.log("this.mealList", this.mealList);
-      this.strMeasureDigit = this.mealList.strMeasure1;
-      console.log("mesuredigit", this.strMeasureDigit);
+      
+      this.mealList.forEach((a:any) => {
+        Object.assign(a, {quantity:1, total:a.strMeasure1});
+      });
     })
     
   }
-  onCartUpdated(event:any) {
-    const id = event.target.getAttribute('id');
-    const index = this.mealList.findIndex((elem :any) => elem.idMeal == id);
-    this.cartUpdated.emit({
-        productId: this.mealList[index].idMeal,
-        productName: this.mealList[index].strMeal,
-        productPrice: this.mealList[index].strMeasure1
-      });
-      console.log('inoncart')
-}
+  addtoCart(item : any) {
+    this.cartService.addtoCart(item);
+  } 
+
 
 }

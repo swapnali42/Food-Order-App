@@ -5,9 +5,15 @@ import { AuthGuard } from './auth.guard';
 import { LoginPageComponent } from './component/login-page/login-page.component';
 import { RegisterUserComponent } from './component/register-user/register-user.component';
 import { HomeComponent } from './component/home/home.component'
+import { CartComponent } from './component/cart/cart.component';
+import { SearchComponent } from './component/search/search.component';
 
 const routes: Routes = [
-
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
   {
     path: 'login',
     component: LoginPageComponent,
@@ -20,12 +26,16 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
+  },
+  
+  {
+    path: 'cart',
+    component: CartComponent
   },
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    path:'search',
+    component: SearchComponent
   }
 ]
 

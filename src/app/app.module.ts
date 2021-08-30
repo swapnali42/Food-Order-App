@@ -11,6 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { MatCardModule} from '@angular/material/card';  
 import { MatButtonModule} from '@angular/material/button';
+import { CartComponent } from './component/cart/cart.component';
+import { SearchComponent } from './component/search/search.component';
+
+
  
 
 @NgModule({
@@ -19,7 +23,11 @@ import { MatButtonModule} from '@angular/material/button';
     HeaderComponent,
     LoginPageComponent,
     RegisterUserComponent,
-    HomeComponent
+    HomeComponent,
+    CartComponent,
+    SearchComponent,
+  
+  
   ],
   imports: [
     BrowserModule,
