@@ -5,37 +5,49 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
-public cartItemList : any = []
-public productList = new BehaviorSubject<any>([]);
+  public cartItemList: any = []
+  public productList = new BehaviorSubject<any>([]);
   constructor() { }
 
   getProducts() {
     return this.productList.asObservable();
   }
-  setProduct(product:any) {
-    this.cartItemList.push(...product) 
+  setProduct(product: any) {
+    this.cartItemList.push(...product)
     this.productList.next(product);
   }
-  addtoCart(product : any) {
+  addtoCart(product: any) {
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
-    console.log("this.cartItemList",this.cartItemList)
+    console.log("this.cartItemList", this.cartItemList)
   }
+
   getTotalPrice(): number {
+    let strMeasure1FromArr:any;
+    let MesureInNumb: String;
+    let price: any;
     let grandTotal = 0;
-    this.cartItemList.map((a:any) =>  {
-      grandTotal += a.total
-    })
+
+    // console.log("cartList from getTotalPrice---->>", this.cartItemList);
+    this.cartItemList.forEach((element: any) => {
+    strMeasure1FromArr = element.strMeasure1;
+    console.log("strMeasure1FromArr-->", strMeasure1FromArr);
+    grandTotal += strMeasure1FromArr;
+    console.log("grandTotal", grandTotal);
+
+    });
+
+    
+
     return grandTotal;
   }
-  removeCartItem(product:any) {
-this.cartItemList.map((a:any, index:any)=> {
-  if(product.id=== a.id) {
+
+
+  removeCartItem(index: any) {
     this.cartItemList.splice(index, 1);
-  }
-  })
-  this.productList.next(this.cartItemList);
+
+    this.productList.next(this.cartItemList);
   }
   removeAllCart() {
     this.cartItemList = []

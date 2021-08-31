@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 export class CommonService {
 baseUrl : any = environment.baseURL;
 baseUrl1 : any = environment.baseURL1;
+public products : any = [];
   constructor( private http:HttpClient) { }
 
   getUser() {
@@ -18,4 +19,6 @@ baseUrl1 : any = environment.baseURL1;
   getFood() {
     return this.http.get(this.baseUrl1)
   }
+  
+  
 }

@@ -17,10 +17,13 @@ export class CartComponent implements OnInit {
     .subscribe(res => {
       this.products = res;
       this.grandTotal = this.cartservice.getTotalPrice();
+  
     })
   }
   removeItem(item:any) {
+   
     this.cartservice.removeCartItem(item);
+   
   }
 
   emtyCart() {
