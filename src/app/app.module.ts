@@ -12,7 +12,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatCardModule} from '@angular/material/card';  
 import { MatButtonModule} from '@angular/material/button';
 import { CartComponent } from './component/cart/cart.component';
-import { SearchComponent } from './component/search/search.component';
+import { AboutUsComponent } from './component/about-us/about-us.component';
+import { FAQComponent } from './component/faq/faq.component';
+
 
 
  
@@ -25,7 +27,9 @@ import { SearchComponent } from './component/search/search.component';
     RegisterUserComponent,
     HomeComponent,
     CartComponent,
-    SearchComponent,
+    AboutUsComponent,
+    FAQComponent,
+    
   
   
   ],

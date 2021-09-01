@@ -15,10 +15,10 @@ export class HomeComponent implements OnInit {
   mealList: any = [];
   grandTotal: Number = 0;
   strMeasureDigit: any = [];
-  strMesure1fromarray : any; 
-  foodPrice: string ='';
-  foodPriceinNum : Number = 0;
-
+  strMesure1fromarray: any;
+  foodPrice: string = '';
+  foodPriceinNum: Number = 0;
+  searchText: String = '';
 
 
   @Output() cartUpdated = new EventEmitter<{
@@ -30,12 +30,7 @@ export class HomeComponent implements OnInit {
     private commserv: CommonService, private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.homeForm = this.fb.group({
-      idMeal: [],
-      strMeal: [],
-      strMeasure1: []
-    })
-
+ 
 
     this.grandTotal = this.cartService.getTotalPrice();
 
@@ -44,22 +39,22 @@ export class HomeComponent implements OnInit {
       this.mealList = data.meals;
       console.log("this.mealList", this.mealList);
       /*Code for getting food price in Number*/
-        this.mealList.forEach((element:any) => {
-          this.strMesure1fromarray = element.strMeasure1;
-          console.log("foodprice from getMesurePrice", this.strMesure1fromarray);
+      this.mealList.forEach((element: any) => {
+        this.strMesure1fromarray = element.strMeasure1;
+        console.log("foodprice from getMesurePrice", this.strMesure1fromarray);
 
-          this.strMesure1fromarray = this.strMesure1fromarray.match(/\d/g);
-          this.strMesure1fromarray = this.strMesure1fromarray.join("");
-          console.log("foodprice after regular expression", this.strMesure1fromarray);
+        this.strMesure1fromarray = this.strMesure1fromarray.match(/\d/g);
+        this.strMesure1fromarray = this.strMesure1fromarray.join("");
+        console.log("foodprice after regular expression", this.strMesure1fromarray);
 
-          this.foodPrice = this.strMesure1fromarray.slice(0, 3);
-          console.log("food Price taking 3 digit", this.foodPrice);
+        this.foodPrice = this.strMesure1fromarray.slice(0, 3);
+        console.log("food Price taking 3 digit", this.foodPrice);
 
-          this.foodPriceinNum = parseInt(this.foodPrice);
-          console.log("PriceNumber", typeof(this.foodPriceinNum));
-          element.strMeasure1=this.foodPriceinNum;
-          
-        });
+        this.foodPriceinNum = parseInt(this.foodPrice);
+        console.log("PriceNumber", typeof (this.foodPriceinNum));
+        element.strMeasure1 = this.foodPriceinNum;
+
+      });
       /*Code for getting food price in Number*/
       this.mealList.forEach((a: any) => {
         Object.assign(a, { quantity: 1, total: a.strMeasure1 });
@@ -72,4 +67,25 @@ export class HomeComponent implements OnInit {
     this.cartService.addtoCart(item);
   }
 
+
+  searchField(event: any) {
+    console.log("this.mealListfromSearch", this.mealList);
+
+
+    this.searchText += event.target.value;
+    console.log("this.searchText outside IF", this.searchText);
+
+    if (this.searchText) {
+      console.log("this.searchText INSIDE IF", this.searchText);
+      const result = this.mealList.filter((res: any) => res.strMeal.toLowerCase().match(this.searchText.toLowerCase()));
+      console.log("result", result);
+
+      this.mealList = result;
+
+    }
+    else {
+
+      this.ngOnInit();
+    }
+  }
 }

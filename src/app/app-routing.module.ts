@@ -6,7 +6,9 @@ import { LoginPageComponent } from './component/login-page/login-page.component'
 import { RegisterUserComponent } from './component/register-user/register-user.component';
 import { HomeComponent } from './component/home/home.component'
 import { CartComponent } from './component/cart/cart.component';
-import { SearchComponent } from './component/search/search.component';
+import { AboutUsComponent } from './component/about-us/about-us.component';
+import { FAQComponent } from './component/faq/faq.component';
+
 
 const routes: Routes = [
   {
@@ -28,14 +30,18 @@ const routes: Routes = [
     component: HomeComponent,
     canActivate: [AuthGuard]
   },
-  
+
   {
     path: 'cart',
     component: CartComponent
   },
   {
-    path:'search',
-    component: SearchComponent
+    path: 'about-us',
+    component: AboutUsComponent
+  },
+  {
+    path: 'faq',
+    component: FAQComponent
   }
 ]
 
