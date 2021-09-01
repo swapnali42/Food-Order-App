@@ -88,4 +88,8 @@ export class HomeComponent implements OnInit {
       this.ngOnInit();
     }
   }
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['login'])
+  }
 }

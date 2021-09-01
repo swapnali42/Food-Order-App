@@ -36,3 +36,14 @@
     transition: 0.3s ease-in-out;
     transform: scale(1.1);
 }
+.LogoutButton {
+    line-height: 12px;
+    width: 18px;
+    font-size: 8pt;
+    font-family: tahoma;
+    margin-top: 1px;
+    margin-right: 75px;
+    position:absolute;
+    
+    right:0;
+}

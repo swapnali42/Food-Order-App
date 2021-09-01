@@ -10,6 +10,7 @@ import { CommonService } from 'src/app/common.service';
 })
 export class RegisterUserComponent implements OnInit {
   register:any = FormGroup;
+  id:any ;
   constructor(private fb:FormBuilder, private router :Router, private commnServ:CommonService) { }
 
   ngOnInit(): void {
@@ -24,7 +25,8 @@ export class RegisterUserComponent implements OnInit {
     console.log(data);
     let dataToPass = {
       email:data.email,
-      pass:data.pass
+      pass:data.pass,
+      id:this.id++
     }
     this.commnServ.addUser(dataToPass).subscribe((data:any) => {
       console.log(data);

@@ -8,9 +8,9 @@
 
 button {
     padding: 15px 10px;
-    background-color:deepskyblue ;
+    background-color:darkgreen ;
     margin-right: 5px;
-    color: white;
+    color: black;
     font-weight: 600;
 }
 button:disabled {
@@ -25,5 +25,17 @@ button:disabled {
 .btn-primary:hover{
     background-color: darkseagreen;
 }
+.btn-outline-success {
+    padding: 6px 10px;
+    background-color:darkgreen ;
+    margin-right: 5px;
+    color: white;
+    font-weight: 400;
+}
+.btn-outline-success:hover{
+    background-color: darkseagreen;
+}
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

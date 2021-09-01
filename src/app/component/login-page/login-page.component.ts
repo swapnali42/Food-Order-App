@@ -20,7 +20,7 @@ users : any = [];
       pass:['',Validators.required]
     })
     this.commserv.getUser().subscribe((data:any)=> {
-      console.log(data);
+    
       this.users = data;
       console.log("this.users",this.users);
     })
