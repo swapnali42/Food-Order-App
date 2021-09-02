@@ -12,6 +12,7 @@ export class LoginPageComponent implements OnInit {
   
 login:any = FormGroup;
 users : any = [];
+error:String = '';
     constructor(private fb:FormBuilder, private router :Router, private commserv:CommonService) { }
 
   ngOnInit(): void {
@@ -23,6 +24,9 @@ users : any = [];
     
       this.users = data;
       console.log("this.users",this.users);
+    }, (error)=> {
+      console.log(console.error);
+      
     })
   }
   

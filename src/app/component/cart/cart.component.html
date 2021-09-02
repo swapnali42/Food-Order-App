@@ -22,8 +22,12 @@
                             <td>{{item.strMeal}}</td>
                             <td><img style="width: 120px;" src="{{item.strMealThumb}}" alt=""></td>
                             <td style="width: 25%;">{{item.strCategory}}</td>
-                            <th style="width: 12%;">${{item.strMeasure1}}</th>
-                            <td style="width: 12%;">{{item.quantity}}</td>
+                            <th style="width: 12%;">${{item.strMeasure1 * item.quantity}}</th>
+                            <td style="width: 12%;">   
+                                <button (click) = "incrimentItem(item)" class="btn btn-primary addItemFromCartButton">+</button>
+                                    {{item.quantity}}
+                                    <button (click) = "decrimentItem(item)" class="btn btn-danger addItemFromCartButton">-</button>
+                            </td>
                            
                             <td>
                                 <button (click) = "removeItem(i)" class="btn btn-danger">
@@ -34,8 +38,8 @@
                         <tr>
                             <td colspan="4"></td>
                             <td><button (click) = "emtyCart()" class="btn btn-danger">Empty Cart</button></td>
-                            <td><button routerLink="/home" class="btn btn-danger">Shop More</button></td>
-                            <td> <button class="btn btn-primary"> Checkout</button></td>
+                            <td><button routerLink="/home" class="btn btn-primary">Shop More</button></td>
+                            
                             <td><strong>Grand Total : ${{grandTotal}}</strong></td>
                         </tr>
                     </tbody>

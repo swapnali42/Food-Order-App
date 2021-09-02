@@ -6,16 +6,21 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
   public cartItemList: any = []
+  public item :any = [];
   public productList = new BehaviorSubject<any>([]);
   constructor() { }
 
   getProducts() {
+   
     return this.productList.asObservable();
   }
   setProduct(product: any) {
     this.cartItemList.push(...product)
     this.productList.next(product);
   }
+
+
+
   addtoCart(product: any) {
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
@@ -24,21 +29,20 @@ export class CartService {
   }
 
   getTotalPrice(): number {
-    let strMeasure1FromArr:any;
-    let MesureInNumb: String;
-    let price: any;
+    let strMeasure1FromArr: any;
+   
     let grandTotal = 0;
 
     // console.log("cartList from getTotalPrice---->>", this.cartItemList);
     this.cartItemList.forEach((element: any) => {
-    strMeasure1FromArr = element.strMeasure1;
-    console.log("strMeasure1FromArr-->", strMeasure1FromArr);
-    grandTotal += strMeasure1FromArr;
-    console.log("grandTotal", grandTotal);
+      strMeasure1FromArr = element.strMeasure1;
+      console.log("strMeasure1FromArr-->", strMeasure1FromArr);
+      grandTotal += strMeasure1FromArr;
+      console.log("grandTotal", grandTotal);
 
     });
 
-    
+
 
     return grandTotal;
   }
@@ -53,4 +57,24 @@ export class CartService {
     this.cartItemList = []
     this.productList.next(this.cartItemList);
   }
+  removeOneItem(item: any) {
+    if (item.quantity != 1) 
+    {
+      item.quantity -= 1;
+    }
+ 
+    console.log("Decrimented item", item.quantity);
+
+  }
+  addOneItem (item:any) {
+    if (item.quantity != 6) 
+    {
+      item.quantity += 1;
+    }
+    
+    
+    
+    console.log("Incrimented item", item.quantity);
+  }
+  
 }

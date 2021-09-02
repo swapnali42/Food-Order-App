@@ -19,12 +19,14 @@ export class HomeComponent implements OnInit {
   foodPrice: string = '';
   foodPriceinNum: Number = 0;
   searchText: String = '';
+  error :String = '';
 
 
   @Output() cartUpdated = new EventEmitter<{
     productId: number,
     productName: string,
-    productPrice: number
+    productPrice: number;
+   
   }>();
   constructor(private fb: FormBuilder, private router: Router,
     private commserv: CommonService, private cartService: CartService) { }
@@ -38,6 +40,10 @@ export class HomeComponent implements OnInit {
       console.log(data);
       this.mealList = data.meals;
       console.log("this.mealList", this.mealList);
+    }, (error) => {
+      console.log(console.error);
+    
+      
       /*Code for getting food price in Number*/
       this.mealList.forEach((element: any) => {
         this.strMesure1fromarray = element.strMeasure1;
