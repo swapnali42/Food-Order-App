@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
   public cartItemList: any = []
-  public item :any = [];
+
   public productList = new BehaviorSubject<any>([]);
   constructor() { }
 
@@ -36,6 +36,7 @@ export class CartService {
     // console.log("cartList from getTotalPrice---->>", this.cartItemList);
     this.cartItemList.forEach((element: any) => {
       strMeasure1FromArr = element.strMeasure1;
+      
       console.log("strMeasure1FromArr-->", strMeasure1FromArr);
       grandTotal += strMeasure1FromArr;
       console.log("grandTotal", grandTotal);
@@ -67,14 +68,16 @@ export class CartService {
 
   }
   addOneItem (item:any) {
+    console.log("Incrimented item", item.quantity);
     if (item.quantity != 6) 
     {
       item.quantity += 1;
     }
+   
+    this.getTotalPrice();
     
     
-    
-    console.log("Incrimented item", item.quantity);
+ 
   }
   
 }

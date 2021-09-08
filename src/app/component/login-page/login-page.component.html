@@ -1,10 +1,10 @@
 <div class="loginPageImage">
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-md-12">
             <img src="/Pictures/images.jpg" class="img" alt="Responsive image">
         </div>
     </div>
-</div>
+</div> -->
 <div class="row">
 <div class="card-top container-fluid">
     <div ng-app="myApp" ng-controller="myController" class="card">
@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <button class="btn  pull-right" (click)="loginSubmit(login.value)"
                                 [disabled]="login.invalid">Login</button>
-                            <button style="background-color:deepskyblue" class="btn  pull-right"
+                            <button style="background-color:darkgreen; color: white;" class="btn addToCart"
                                 (click)="goToSignup()">Signup</button>
 
                         </div>
@@ -38,5 +38,6 @@
             </div>
         </form>
     </div>
+</div>
 </div>
 </div>

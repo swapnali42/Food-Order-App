@@ -37,27 +37,26 @@ export class HomeComponent implements OnInit {
     this.grandTotal = this.cartService.getTotalPrice();
 
     this.commserv.getFood().subscribe((data: any) => {
-      console.log(data);
+      // console.log(data);
       this.mealList = data.meals;
       console.log("this.mealList", this.mealList);
-    }, (error) => {
-      console.log(console.error);
+    
     
       
       /*Code for getting food price in Number*/
       this.mealList.forEach((element: any) => {
         this.strMesure1fromarray = element.strMeasure1;
-        console.log("foodprice from getMesurePrice", this.strMesure1fromarray);
+        // console.log("foodprice from getMesurePrice", this.strMesure1fromarray);
 
         this.strMesure1fromarray = this.strMesure1fromarray.match(/\d/g);
         this.strMesure1fromarray = this.strMesure1fromarray.join("");
-        console.log("foodprice after regular expression", this.strMesure1fromarray);
+        // console.log("foodprice after regular expression", this.strMesure1fromarray);
 
         this.foodPrice = this.strMesure1fromarray.slice(0, 3);
-        console.log("food Price taking 3 digit", this.foodPrice);
+        // console.log("food Price taking 3 digit", this.foodPrice);
 
         this.foodPriceinNum = parseInt(this.foodPrice);
-        console.log("PriceNumber", typeof (this.foodPriceinNum));
+        // console.log("PriceNumber", typeof (this.foodPriceinNum));
         element.strMeasure1 = this.foodPriceinNum;
 
       });
@@ -75,16 +74,16 @@ export class HomeComponent implements OnInit {
 
 
   searchField(event: any) {
-    console.log("this.mealListfromSearch", this.mealList);
+    // console.log("this.mealListfromSearch", this.mealList);
 
 
     this.searchText += event.target.value;
-    console.log("this.searchText outside IF", this.searchText);
+    // console.log("this.searchText outside IF", this.searchText);
 
     if (this.searchText) {
-      console.log("this.searchText INSIDE IF", this.searchText);
+      // console.log("this.searchText INSIDE IF", this.searchText);
       const result = this.mealList.filter((res: any) => res.strMeal.toLowerCase().match(this.searchText.toLowerCase()));
-      console.log("result", result);
+      // console.log("result", result);
 
       this.mealList = result;
 
@@ -95,6 +94,7 @@ export class HomeComponent implements OnInit {
     }
   }
   logout() {
+    console.log("in log out fun")
     localStorage.clear();
     this.router.navigate(['login'])
   }

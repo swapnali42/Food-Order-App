@@ -3,11 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { LoginPageComponent } from './component/login-page/login-page.component';
-import { RegisterUserComponent } from './component/register-user/register-user.component';
-import { HomeComponent } from './component/home/home.component'
-import { CartComponent } from './component/cart/cart.component';
-import { AboutUsComponent } from './component/about-us/about-us.component';
-import { FAQComponent } from './component/faq/faq.component';
+
 
 
 const routes: Routes = [
@@ -22,26 +18,29 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterUserComponent
+    loadChildren: () => import('src/app/component/register-user/register-user.module').then(m => m.RegisterUserModule)
   },
 
   {
     path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
+   loadChildren: () => import('src/app/component/home/home.module').then(m => m.HomeModule),
+   canActivate: [AuthGuard]
   },
 
   {
     path: 'cart',
-    component: CartComponent
+    loadChildren: () => import('src/app/component/cart/cart.module').then(m => m.CartModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'about-us',
-    component: AboutUsComponent
+    loadChildren: () => import('src/app/component/about-us/about-us.module').then(m => m.AboutUsModule ),
+   
   },
   {
     path: 'faq',
-    component: FAQComponent
+   loadChildren: () => import('src/app/component/faq/faq.module').then(m => m.FaqModule),
+  
   }
 ]
 

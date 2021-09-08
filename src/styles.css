@@ -28,7 +28,14 @@ button:disabled {
 .btn-primary:hover{
     background-color: darkseagreen;
 }
-
+.addToCart {
+    background-color: darkgreen; 
+    border : 1px solid white;
+    color: white;
+}
+.addToCart:hover {
+    background-color: darkseagreen;
+}
 .btn-outline-success {
     padding: 6px 10px;
     background-color:darkgreen ;

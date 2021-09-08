@@ -44,7 +44,7 @@
               <button (click)="searchField($event)" class="btn btn-outline-success"  type="submit">Search</button>
           </div>
           <div class="col-md-2  LogoutButton">
-            <button (click) = "logout" class="btn btn-outline-success">LOGOUT</button>
+            <button (click)="logout()" class="btn btn-outline-success">LOGOUT</button>
           </div>
           </div>
   </div>
@@ -58,7 +58,7 @@
               <h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.strMeal}}</h5>
               <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.strCategory}}</p>
               <p style="white-space: nowrap; overflow: hidden;"><strong>Price:</strong>${{item.strMeasure1}}</p>
-              <button class="btn btn-primary" (click)=addtoCart(item)>Add to cart</button>
+              <button class="btn btn addToCart" (click)=addtoCart(item)>Add to cart</button>
           </div>
       </ng-container>
      
